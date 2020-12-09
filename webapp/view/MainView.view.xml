@@ -5,32 +5,24 @@
 				<Page id="page" titleAlignment="Center" title="Welcome to our Gallery !">
 					<content>
 						<Panel>
-							
-								<!--<OverflowToolbar class="sapFDynamicPageAlignContent">-->
-								<!--	<ToolbarSpacer/>-->
-								<!--	<SearchField search=".onSearch" width="17.5rem"/>-->
-								<!--	<OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press=".onAdd"/>-->
-								<!--	<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>-->
-								<!--</OverflowToolbar>-->
-								<Table class="sapFDynamicPageAlignContent" width="auto" items="{ path: 'PaintersModel>/PaintersSet' , sorter : { path : 'Firstname' } }">
-									<columns>
-										<Column width="">
-											<Text text="Painters"/>
-										</Column>
-									</columns>
-									<items>
-										<ColumnListItem type="Navigation" press=".onListItemPress">
-											<cells>
-												<Text text="{PaintersModel>Firstname} {PaintersModel>Lastname}"/>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
-								
-							</Panel>
-						</content>
-					</Page>
-				</pages>
-			</App>
-		</Shell>
-	</mvc:View>
+							<Table class="sapFDynamicPageAlignContent" width="auto" items="{ path: 'PaintersModel>/PaintersSet' , sorter : { path : 'Firstname' } }">
+								<columns>
+									<Column width="">
+										<Text text="Painters"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation" press=".onListItemPress">
+										<cells>
+											<Text text="{PaintersModel>Firstname} {PaintersModel>Lastname}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -1,28 +1,22 @@
-<mvc:View  xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="kpmg.home.Exercise4.controller.Painter" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" displayBlock="true"
+	xmlns="sap.m">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="Welcome to our Gallery !">
 					<content>
 						<Panel>
+							<List headerText="Painter">
+								<StandardListItem title="Firstname" description="{PaintersModel>Firstname}"/>
+								<StandardListItem title="Lastname" description="{PaintersModel>Lastname}"/>
+								<StandardListItem title="Age" description="{PaintersModel>Age}"/>
+								<StandardListItem title="HomeCountry" description="{PaintersModel>BornIn}"/>
+							</List>
 							
-							<Button id="employeeListBtn" text="{PaintersModel>/Age}" press=".onNavToEmployees" class="sapUiTinyMarginEnd"/>
-							<!--<Table> -->
-							<!--	<columns>-->
-							<!--		<Column width="">-->
-							<!--			<Text text="age"/>-->
-							<!--		</Column>-->
-							<!--	</columns>-->
-							<!--	<items>-->
-							<!--		<ColumnListItem>-->
-							<!--			<cells>-->
-							<!--				<Text text="{PaintersModel>age}"/>-->
-							<!--			</cells>-->
-							<!--		</ColumnListItem>-->
-							<!--	</items>-->
-							<!--</Table>-->
-							
-							<!--<input text="{PaintersModel>age}"></input>-->
+						</Panel>
+						
+						<Panel>
+							<Button text="Find all Paintings here! " press=".onPaintings"></Button>
 						</Panel>
 					</content>
 				</Page>

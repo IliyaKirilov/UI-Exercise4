@@ -1,0 +1,38 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Welcome to our Gallery !">
+					<content>
+						<Table items="{ path: 'PaintersModel>/PaintingsSet' }">
+							<columns>
+								<Column >
+									<Text text="Painter"/>
+								</Column>
+								<Column >
+									<Text text="Painting Name"/>
+								</Column>
+								<Column >
+									<Text text="Painting Type"/>
+								</Column>
+								<Column >
+									<Text text="Dimensions"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{PaintersModel>PaintedBy}"/>
+										<Text text="{PaintersModel>Name}"/>
+										<Text text="{PaintersModel>Type}"/>
+										<Text text="{PaintersModel>Dimensions}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

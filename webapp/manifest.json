@@ -78,11 +78,9 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -94,20 +92,22 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
+			"routes": [{
 					"name": "RouteMainView",
 					"pattern": "RouteMainView",
 					"target": [
 						"TargetMainView"
 					]
-				},
-				
-				{
-				"pattern": "PaintersSet/{Firstname}",
-				"name": "painter",
-				"target": "painter"
-			}
+				}, {
+					"pattern": "PaintersSet/{Firstname}",
+					"name": "painter",
+					"target": "painter"
+				}, {
+					"pattern": "PaintersSet/{Firstname}/toPaintings",
+					"name" : "toPaintings",
+					"target" : "toPaintings"
+				}
+
 			],
 			"targets": {
 				"TargetMainView": {
@@ -120,7 +120,11 @@
 				"painter": {
 					"viewId": "Painter",
 					"viewName": "Painter"
-					
+
+				},
+				"toPaintings": {
+					"viewId": "Paintings",
+					"viewName": "Paintings"
 				}
 			}
 		}
