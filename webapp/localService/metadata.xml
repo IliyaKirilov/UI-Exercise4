@@ -1,0 +1,78 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGALLERY_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Painters" sap:content-version="1">
+				<Key><PropertyRef Name="Firstname"/></Key><Property Name="Firstname" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="First Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lastname" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Age" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Age" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BornIn" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Home country" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="toPaintings" Relationship="ZGALLERY_SRV.PainterPaintings" FromRole="FromRole_PainterPaintings"
+					ToRole="ToRole_PainterPaintings"/></EntityType>
+			<EntityType Name="Paintings" sap:content-version="1">
+				<Key><PropertyRef Name="PaintedBy"/><PropertyRef Name="Name"/></Key><Property Name="PaintedBy" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="First Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Painting name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Painting type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dimensions" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Painting Dimensions"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ToPainters" Relationship="ZGALLERY_SRV.PainterPaintings" FromRole="ToRole_PainterPaintings"
+					ToRole="FromRole_PainterPaintings"/></EntityType>
+			<EntityType Name="File" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="FileName"/></Key><Property Name="Mimetype" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ZC_PAINTERSType" sap:label="Consupmtion for painters" sap:content-version="1">
+				<Key><PropertyRef Name="Firstname"/></Key><Property Name="Firstname" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="First Name"/><Property Name="Lastname" Type="Edm.String" MaxLength="40" sap:label="Last Name"/><Property Name="Age" Type="Edm.Int16" sap:label="Age"/><Property Name="born_in" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Home country"/><NavigationProperty Name="to_Paintings" Relationship="ZGALLERY_SRV.assoc_D0EABBB44F36D728B62611DD142A2480"
+					FromRole="FromRole_assoc_D0EABBB44F36D728B62611DD142A2480" ToRole="ToRole_assoc_D0EABBB44F36D728B62611DD142A2480"/></EntityType>
+			<EntityType Name="ZC_PAINTINGSType" sap:label="Consupmtion for paintings" sap:content-version="1">
+				<Key><PropertyRef Name="Painted_by"/><PropertyRef Name="Name"/></Key><Property Name="Painted_by" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="First Name"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Painting name"/><Property Name="Type" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Painting type"/><Property Name="Dimensions" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:label="Painting Dimensions"
+					sap:quickinfo="Painting dimensions"/></EntityType>
+			<ComplexType Name="CheckPainter"><Property Name="Exists" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Does exist" sap:creatable="false" sap:updatable="false"
+				sap:sortable="false" sap:filterable="false"/></ComplexType>
+			<Association Name="PainterPaintings" sap:content-version="1"><End Type="ZGALLERY_SRV.Painters" Multiplicity="1" Role="FromRole_PainterPaintings"/><End Type="ZGALLERY_SRV.Paintings" Multiplicity="*" Role="ToRole_PainterPaintings"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_PainterPaintings"><PropertyRef Name="Firstname"/></Principal>
+					<Dependent Role="ToRole_PainterPaintings"><PropertyRef Name="PaintedBy"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_D0EABBB44F36D728B62611DD142A2480" sap:content-version="1"><End Type="ZGALLERY_SRV.ZC_PAINTERSType" Multiplicity="1" Role="FromRole_assoc_D0EABBB44F36D728B62611DD142A2480"/><End Type="ZGALLERY_SRV.ZC_PAINTINGSType" Multiplicity="*" Role="ToRole_assoc_D0EABBB44F36D728B62611DD142A2480"/></Association>
+			<EntityContainer Name="ZGALLERY_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="ZC_PAINTERS" EntityType="ZGALLERY_SRV.ZC_PAINTERSType" sap:content-version="1"/><EntitySet Name="ZC_PAINTINGS" EntityType="ZGALLERY_SRV.ZC_PAINTINGSType" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:content-version="1"/><EntitySet Name="PaintersSet" EntityType="ZGALLERY_SRV.Painters" sap:searchable="true" sap:content-version="1"/><EntitySet Name="PaintingsSet" EntityType="ZGALLERY_SRV.Paintings" sap:searchable="true" sap:content-version="1"/><EntitySet Name="FileSet" EntityType="ZGALLERY_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="PainterPaintingsSet" Association="ZGALLERY_SRV.PainterPaintings" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="PaintersSet" Role="FromRole_PainterPaintings"/><End EntitySet="PaintingsSet" Role="ToRole_PainterPaintings"/></AssociationSet>
+				<AssociationSet Name="assoc_D0EABBB44F36D728B62611DD142A2480" Association="ZGALLERY_SRV.assoc_D0EABBB44F36D728B62611DD142A2480"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_PAINTERS" Role="FromRole_assoc_D0EABBB44F36D728B62611DD142A2480"/><End EntitySet="ZC_PAINTINGS" Role="ToRole_assoc_D0EABBB44F36D728B62611DD142A2480"/></AssociationSet>
+				<FunctionImport Name="CheckPainter" ReturnType="ZGALLERY_SRV.CheckPainter" m:HttpMethod="POST" sap:action-for="ZGALLERY_SRV.Painters"><Parameter Name="Firstname" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGALLERY_SRV.ZGALLERY_SRV_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGALLERY_SRV.ZC_PAINTERSType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>Firstname</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGALLERY_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGALLERY_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

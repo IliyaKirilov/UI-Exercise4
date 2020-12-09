@@ -1,0 +1,32 @@
+<mvc:View  xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Welcome to our Gallery !">
+					<content>
+						<Panel>
+							
+							<Button id="employeeListBtn" text="{PaintersModel>/Age}" press=".onNavToEmployees" class="sapUiTinyMarginEnd"/>
+							<!--<Table> -->
+							<!--	<columns>-->
+							<!--		<Column width="">-->
+							<!--			<Text text="age"/>-->
+							<!--		</Column>-->
+							<!--	</columns>-->
+							<!--	<items>-->
+							<!--		<ColumnListItem>-->
+							<!--			<cells>-->
+							<!--				<Text text="{PaintersModel>age}"/>-->
+							<!--			</cells>-->
+							<!--		</ColumnListItem>-->
+							<!--	</items>-->
+							<!--</Table>-->
+							
+							<!--<input text="{PaintersModel>age}"></input>-->
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
